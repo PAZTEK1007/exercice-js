@@ -1,22 +1,85 @@
-let firstTime = Date.now();
+let currStalinTile;
+let currGopnikTile;
+let score = 0;
+let gameOver = false;
 
-function timer (){
-    let actualTime = Date.now();
-    let timeout = actualTime - firstTime;
-    let secondTimeout = Math.floor((timeout % 60000) / 1000);
-    let minuteTimeout = Math.floor(timeout / 60000);
 
-    let message;
-    if (secondTimeout === 1){
-        message = "a second has passed !";
-    } else if (minuteTimeout === 1){
-        message = "a minute " + "and" + secondTimeout + " has passed !";
-    } else if (secondTimeout < 60 ){
-        message = secondTimeout + " seconds have passed !";
-    } else if (minuteTimeout < 60){
-        message = minuteTimeout + " minutes have passed ! " + secondTimeout + " seconds !";
-    }
-    document.getElementById("timer").textContent = message;
+window.onload = function() {
+    setGame();
 }
 
-setInterval(timer, 1000);
+function setGame() {
+    for (let i = 0 ; i < 9; i++){
+
+        let tile = document.createElement("div");
+        tile.id = i.toString();
+        tile.addEventListener('click', selectTile);
+        document.getElementById("board").appendChild(tile);
+    }
+    setInterval(setStalin, 2000);
+    setInterval(setGopnik, 3000);
+}
+
+function getRandomTiles() {
+    let num = Math.floor(Math.random() * 9);
+    return num.toString();
+}
+
+function setStalin() {
+    if (gameOver) {
+        return;
+    }
+
+    if (currStalinTile)  {
+        currStalinTile.innerHTML = '';
+    }
+
+    let stalin = document.createElement('img');
+    stalin.src = 'assets/img/stalin.png';
+    let num = getRandomTiles();
+
+    if (currGopnikTile && currGopnikTile.id == num){
+        return;
+    }
+
+    currStalinTile = document.getElementById(num);
+    currStalinTile.appendChild(stalin);
+}
+
+function setGopnik() {
+    if (gameOver) {
+        return;
+    }
+
+    if (currGopnikTile) {
+        currGopnikTile.innerHTML = '';
+    }
+
+    let gopnik = document.createElement('img');
+    gopnik.src = 'assets/img/gopnik.png';
+    let num = getRandomTiles();
+
+    if (currStalinTile && currStalinTile.id == num){
+        return;
+    }
+    
+    currGopnikTile = document.getElementById(num);
+    currGopnikTile.appendChild(gopnik);
+}
+
+function selectTile() {
+    if (gameOver) {
+        return;
+    }
+
+    if (this == currStalinTile){
+        score += 50;
+        document.getElementById('score').innerText = score.toString();
+    } else if (this == currGopnikTile){
+        let desc = document.createElement('h3');
+        document.getElementById('score').innerText ="GAME-OVER : " + score.toString();
+        desc.innerText = "CYKA BLYAT";
+        gameOver = true;
+        currGopnikTile.appendChild(desc);   
+    }
+}

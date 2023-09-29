@@ -1,0 +1,66 @@
+body {
+    background-image: url("../img/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h1{
+    text-align: center;
+    color:yellow;
+}
+h2{
+    text-align: center;
+    color:rgb(0, 0, 0);
+}
+
+h3{
+    position: relative;
+    bottom: 130px;
+    left: 100px;
+    text-align: center;
+    color: black;
+    padding: 5%;
+    border: 1px solid white;
+    border-radius: 8px;
+    background-color: white;
+}
+
+#board{
+    width: 540px;
+    height: 540px;
+    background-image: url(../img/dirt.jpg);
+    background-size: cover;
+    border: 6px solid yellow;
+    border-radius: 5%;
+    
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#board div{
+    position: relative;
+    left: 20px;
+    top: 20px;
+    width: 180px;
+    height: 180px;
+    background-image: url(../img/communist-pipe.png);
+    background-size: 140px, cover;
+    background-repeat: no-repeat;
+
+    
+}
+
+#board div img{
+    width: 80px;
+    height: 80px;
+    position: relative;
+    left: 34px;
+    bottom: 45px;
+
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
