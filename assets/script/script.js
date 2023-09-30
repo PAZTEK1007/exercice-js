@@ -85,7 +85,7 @@ function selectTile() {
     }
 
     if (this == currStalinTile){
-        let shoot = new Audio('./assets/sound/gun.mp3');
+        let shoot = new Audio('./assets/sound/Gun.mp3');
         shoot.play();
         score += 50;
         document.getElementById('score').innerText = score.toString();
