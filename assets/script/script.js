@@ -7,17 +7,8 @@ let backgroundMusic = document.getElementById('backgroundMusic');
 
 window.onload = function() {
     setGame();
-    playMusic();
-    pauseMusic();
 }
 
-function playMusic() {
-    backgroundMusic.play();
-}
-
-function pauseMusic() {
-    backgroundMusic.pause();
-}
 
 
 
