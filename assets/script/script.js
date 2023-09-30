@@ -2,8 +2,6 @@ let currStalinTile;
 let currGopnikTile;
 let score = 0;
 let gameOver = false;
-let backgroundMusic = document.getElementById('backgroundMusic');
-
 
 window.onload = function() {
     setGame();
