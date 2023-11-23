@@ -8,7 +8,7 @@ Ce référentiel contient une série d'exercices JavaScript. Chaque exercice est
 2. Naviguez vers la branche de l'exercice que vous souhaitez consulter en utilisant la commande `git checkout`.
     Par exemple, pour accéder à l'exercice 1, utilisez la commande suivante :
     ```
-    git checkout exercice-1
+    git checkout exercice1
     ```
 
 N'hésitez pas à explorer les différentes branches pour accéder aux exercices individuels.
